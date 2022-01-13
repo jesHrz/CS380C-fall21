@@ -1,0 +1,7 @@
+.DS_Store
+*.o
+csc
+csc.dSYM
+*.3addr*
+*.gcc.*
+.idea
