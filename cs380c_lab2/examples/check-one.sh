@@ -1,8 +1,9 @@
 #!/usr/bin/env bash
 
+# $Id: check-one.sh 818 2007-09-02 17:45:21Z suriya $
+
 C_SUBSET_COMPILER=../src/csc
-#TODO: set THREE_ADDR_TO_C_TRANSLATOR to your own converter
-THREE_ADDR_TO_C_TRANSLATOR=../lab1/convert
+THREE_ADDR_TO_C_TRANSLATOR=../../cs380c_lab1/lab1/convert
 
 [ $# -ne 1 ] && { echo "Usage $0 PROGRAM" >&2; exit 1; }
 

@@ -258,9 +258,13 @@ static std::string parse_function() {
         } else if (line[0] == "wrl") {
             states[LNR].body = "WriteLine()";
         } else if (line[0] == "load") {
-            int ln = GET_REG(line[1]);
-            states.insert(MK(LNR, GET(states, ln)));
-            states.erase(ln);
+            if (FIND(line[1], '(')) {
+                int ln = GET_REG(line[1]);
+                states.insert(MK(LNR, GET(states, ln)));
+                states.erase(ln);
+            } else {
+                states[LNR].body = line[1];
+            }
         } else if (line[0] == "store") {
             std::string lval = parse_instr_arg(line[2], params, locals, larrays, states);
             std::string rval = parse_instr_arg(line[1], params, locals, larrays, states);
